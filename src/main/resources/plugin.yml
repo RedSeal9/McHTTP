@@ -1,0 +1,5 @@
+name: McHTTP
+version: ${project.version}
+main: red.McHTTP.McHTTP
+api-version: 1.16
+description: Simple plugin to send HTTP requests to an endpoint when a server power event happens.
