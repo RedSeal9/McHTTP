@@ -31,17 +31,19 @@ String srvname = "red";
 
 String USER_AGENT = "Red_Mozilla/" + version;
 
+String endpoint = "https://redseal.red";
+
 //send request when server is started
 @Override
     public void onEnable() {
 		String pwrstate = "on";
-		sendGETRequestv2("https://redseal.red?state=" + pwrstate + "&name=" + srvname);
+		sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
 }
 //send request when server is powered off
 @Override
     public void onDisable() {
 		String pwrstate = "off";
-		sendGETRequestv2("https://redseal.red?state" + pwrstate + "&name=" + srvname);
+		sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
 }
     public void sendGETRequestv2(final String url) {
 
