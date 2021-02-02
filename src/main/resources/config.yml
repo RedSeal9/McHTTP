@@ -1,4 +1,3 @@
-#McHTTP plugin
-http:
-    endpoint: "https://example.com" #where to send requests to
-    name: mcsrvr #name to send requests with
+#McHTTP plugin on GitHub @ https://github.com/RedSeal9/McHTTP
+endpoint: "https://example.com" #where to send requests to
+name: mcsrvr #name to send requests with

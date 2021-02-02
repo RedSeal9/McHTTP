@@ -37,7 +37,7 @@ String USER_AGENT = "McHTTP/" + version;
         saveDefaultConfig();
 	//power actions
 			String pwrstate = "on";
-			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("http.name"));
+			sendGETRequestv2(getConfig().getString("endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("name"));
 }
 //send request when server is powered off
 @Override
@@ -45,7 +45,7 @@ String USER_AGENT = "McHTTP/" + version;
 		saveConfig();
 		//power actions
 			String pwrstate = "off";
-			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("http.name"));
+			sendGETRequestv2(getConfig().getString("endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("name"));
 }
     public void sendGETRequestv2(final String url) {
 
