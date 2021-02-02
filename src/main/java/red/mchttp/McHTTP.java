@@ -35,7 +35,7 @@ String USER_AGENT = "Red_Mozilla/" + version;
 @Override
     public void onEnable() {
 		String pwrstate = "on";
-		sendGETRequestv2("https://redseal.red?state" + pwrstate + "&name=" + srvname);
+		sendGETRequestv2("https://redseal.red?state=" + pwrstate + "&name=" + srvname);
 }
 //send request when server is powered off
 @Override
