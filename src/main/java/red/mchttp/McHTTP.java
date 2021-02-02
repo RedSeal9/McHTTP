@@ -25,15 +25,24 @@ import java.util.List;
 
 public final class McHTTP extends JavaPlugin {
 
-String version = "1.0";
-
-String pwrstate = "on";
+String version = "1.1";
 
 String srvname = "red";
 
-String USER_AGENT = "Mozilla/5.0";
+String USER_AGENT = "Red_Mozilla/" + version;
 
-String url = "https://redseal.red";
+//send request when server is started
+@Override
+    public void onEnable() {
+		String pwrstate = "on";
+		sendGETRequestv2("https://redseal.red?state" + pwrstate + "&name=" + srvname);
+}
+//send request when server is powered off
+@Override
+    public void onDisable() {
+		String pwrstate = "off";
+		sendGETRequestv2("https://redseal.red?state" + pwrstate + "&name=" + srvname);
+}
     public void sendGETRequestv2(final String url) {
 
         //Build client
@@ -46,8 +55,6 @@ String url = "https://redseal.red";
             final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
 
             int responseCode = response.getStatusLine().getStatusCode();
-            System.out.println("Send http GET request...(" + url + ")");
-            System.out.println("Request status..." + responseCode);
 
             String bufferReaderLine;
             final StringBuilder stringBuilder = new StringBuilder();
@@ -56,7 +63,7 @@ String url = "https://redseal.red";
             }
 
             bufferedReader.close();
-            System.out.print(response);
+            //System.out.print(response);
 
             System.out.println("\nRequest completed successfully.");
         } catch (final IOException ioE) {
