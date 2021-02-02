@@ -33,7 +33,8 @@ String USER_AGENT = "McHTTP/" + version;
 @Override
     public void onEnable() {
 		//Config Registration
-        getConfig().options().copyDefaults();
+        getConfig().options();
+        //getConfig().options().copyDefaults();
         saveDefaultConfig();
 	//power actions
 			String pwrstate = "on";
