@@ -1,4 +1,4 @@
 #McHTTP plugin
 http:
-    endpoint: "http://example.com"
-    server_id: ""
+    endpoint: "http://example.com" #where to send requests to
+    name: "mcsrvr" #name to send requests with

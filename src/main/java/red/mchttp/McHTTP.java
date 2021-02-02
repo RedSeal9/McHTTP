@@ -27,11 +27,7 @@ public final class McHTTP extends JavaPlugin {
 
 String version = "1.0";
 
-String srvname = "red";
-
-String USER_AGENT = "Red_Mozilla/" + version;
-
-String endpoint = "https://redseal.red";
+String USER_AGENT = "McHTTP/" + version;
 
 //send request when server is started
 @Override
@@ -41,8 +37,7 @@ String endpoint = "https://redseal.red";
         saveDefaultConfig();
 	//power actions
 			String pwrstate = "on";
-			//sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
-			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + srvname);
+			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("http.name"));
 }
 //send request when server is powered off
 @Override
@@ -50,8 +45,7 @@ String endpoint = "https://redseal.red";
 		saveConfig();
 		//power actions
 			String pwrstate = "off";
-			//sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
-			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + srvname);
+			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + getConfig().getString("http.name"));
 }
     public void sendGETRequestv2(final String url) {
 
