@@ -1,0 +1,4 @@
+#McHTTP plugin
+http:
+    endpoint: "http://example.com"
+    server_id: ""

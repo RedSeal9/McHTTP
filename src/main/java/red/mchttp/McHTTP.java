@@ -25,7 +25,7 @@ import java.util.List;
 
 public final class McHTTP extends JavaPlugin {
 
-String version = "1.1";
+String version = "1.0";
 
 String srvname = "red";
 
@@ -36,14 +36,21 @@ String endpoint = "https://redseal.red";
 //send request when server is started
 @Override
     public void onEnable() {
-		String pwrstate = "on";
-		sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
+		//Config Registration
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+	//power actions
+			String pwrstate = "on";
+			sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
 }
 //send request when server is powered off
 @Override
     public void onDisable() {
-		String pwrstate = "off";
-		sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
+		saveConfig();
+		//power actions
+			String pwrstate = "off";
+			//sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
+			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + srvname);
 }
     public void sendGETRequestv2(final String url) {
 
@@ -67,7 +74,7 @@ String endpoint = "https://redseal.red";
             bufferedReader.close();
             //System.out.print(response);
 
-            System.out.println("\nRequest completed successfully.");
+            System.out.println("[McHTTP] Request completed successfully!");
         } catch (final IOException ioE) {
             ioE.printStackTrace();
         } catch (final URISyntaxException e) {
