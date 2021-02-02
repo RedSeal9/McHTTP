@@ -41,7 +41,8 @@ String endpoint = "https://redseal.red";
         saveDefaultConfig();
 	//power actions
 			String pwrstate = "on";
-			sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
+			//sendGETRequestv2(endpoint + "?state=" + pwrstate + "&name=" + srvname);
+			sendGETRequestv2(getConfig().getString("http.endpoint") + "?state=" + pwrstate + "&name=" + srvname);
 }
 //send request when server is powered off
 @Override
