@@ -4,3 +4,5 @@ Sends an HTTP(s) request to a user defined endpoint when a minecraft server powe
 Use `mvn clean install` to build.
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com)
+
+[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://forthebadge.com)
